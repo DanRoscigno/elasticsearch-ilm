@@ -24,7 +24,7 @@ vm.max_map_count=262144
 
 I have five nodes.  I am requiring two master eligible nodes.  
 
-The first node (`external-elastic-one`) has this config:
+The first node (`external-elastic-one`) has this config after following the [security blog](https://www.elastic.co/blog/tips-to-secure-elasticsearch-clusters-for-free-with-encryption-users-and-more):
 
 ```
 node.name: external-elastic-one
@@ -40,6 +40,9 @@ discovery.zen.ping.unicast.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx", "ro
 cluster.initial_master_nodes: ["external-elastic-one", "external-elastic-two"]
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 ```
 
 Note: Come back and add info on security, or maybe ust link to the securing your cluster doc.
@@ -60,6 +63,9 @@ discovery.zen.ping.unicast.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx", "ro
 cluster.initial_master_nodes: ["external-elastic-one", "external-elastic-two"]
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 ```
 
 node 3 is not master eligible
@@ -71,7 +77,11 @@ Note that I am running Kibana on `localhost` and not the hostname as I am going 
 ```
 #server.host: "roscigno-ilm-sr76"
 server.host: "localhost"
+
 elasticsearch.hosts: ["http://roscigno-ilm-sr76:9200", "http://roscigno-ilm-q8dx:9200", "http://roscigno-ilm-6tml:9200"]
+
+elasticsearch.username: "kibana"
+elasticsearch.password: "kibanapassword"
 ```
 
 ## Tunnel to GCP
