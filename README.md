@@ -36,7 +36,7 @@ node.ml: false
 xpack.ml.enabled: false 
 discovery.zen.minimum_master_nodes: 2
 network.host:  0.0.0.0
-discovery.zen.ping.unicast.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx", "roscigno-ilm-6tml"]
+discovery.seed_hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx"]
 cluster.initial_master_nodes: ["external-elastic-one", "external-elastic-two"]
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
@@ -59,7 +59,7 @@ node.ml: false
 xpack.ml.enabled: false 
 discovery.zen.minimum_master_nodes: 2
 network.host:  0.0.0.0
-discovery.zen.ping.unicast.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx", "roscigno-ilm-6tml"]
+discovery.seed_hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx"]
 cluster.initial_master_nodes: ["external-elastic-one", "external-elastic-two"]
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
@@ -80,7 +80,7 @@ node.ml: false
 xpack.ml.enabled: false 
 discovery.zen.minimum_master_nodes: 2
 network.host:  0.0.0.0
-discovery.seed.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx"]
+discovery.seed_hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx"]
 xpack.security.enabled: true
 xpack.security.transport.ssl.enabled: true
 xpack.security.transport.ssl.verification_mode: certificate
