@@ -38,6 +38,8 @@ discovery.zen.minimum_master_nodes: 2
 network.host:  0.0.0.0
 discovery.zen.ping.unicast.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx", "roscigno-ilm-6tml"]
 cluster.initial_master_nodes: ["external-elastic-one", "external-elastic-two"]
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
 ```
 
 Note: Come back and add info on security, or maybe ust link to the securing your cluster doc.
@@ -56,6 +58,8 @@ discovery.zen.minimum_master_nodes: 2
 network.host:  0.0.0.0
 discovery.zen.ping.unicast.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx", "roscigno-ilm-6tml"]
 cluster.initial_master_nodes: ["external-elastic-one", "external-elastic-two"]
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
 ```
 
 node 3 is not master eligible
@@ -78,4 +82,14 @@ This uses the Google `gcloud` command to ssh to a VM in my GCE projject and port
 gcloud compute ssh --project elastic-customer-success \
   --zone us-central1-a roscigno-ilm-sr76 \
   -- -L 8601:localhost:5601
+```
+
+## Transfer files
+
+If you need to scp files from a GCE VM to your laptop:
+```
+gcloud compute scp \
+  dan_roscigno@roscigno-ilm-sr76:/home/dan_roscigno/install/elasticsearch-7.5.2/config/elastic-certificates.p12 \
+  . \
+  --project elastic-customer-success --zone us-central1-a 
 ```
