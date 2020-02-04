@@ -68,7 +68,25 @@ xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
 xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 ```
 
-node 3 is not master eligible
+node 5 is not master eligible or an ingest node.  It is a warm node (`node.attr.box_type: warm`)
+
+```
+node.name: external-elastic-five
+node.attr.box_type: warm
+node.master: false 
+node.data: true 
+node.ingest: false 
+node.ml: false 
+xpack.ml.enabled: false 
+discovery.zen.minimum_master_nodes: 2
+network.host:  0.0.0.0
+discovery.seed.hosts: ["roscigno-ilm-sr76", "roscigno-ilm-q8dx"]
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
+```
 
 ## Kibana
 
