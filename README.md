@@ -82,6 +82,9 @@ elasticsearch.hosts: ["http://roscigno-ilm-sr76:9200", "http://roscigno-ilm-q8dx
 
 elasticsearch.username: "kibana"
 elasticsearch.password: "kibanapassword"
+
+# Disable reporting because of a Chromium issue on my VM
+xpack.reporting.enabled: false
 ```
 
 ## Tunnel to GCP
