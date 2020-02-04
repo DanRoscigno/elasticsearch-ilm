@@ -62,8 +62,20 @@ node 3 is not master eligible
 
 ## Kibana
 
+Note that I am running Kibana on `localhost` and not the hostname as I am going to use an SSH tunnel and map port `8601` on my laptop to port `5601` on the GCE VM
+
 ```
-server.host: "roscigno-ilm-sr76"
+#server.host: "roscigno-ilm-sr76"
+server.host: "localhost"
 elasticsearch.hosts: ["http://roscigno-ilm-sr76:9200", "http://roscigno-ilm-q8dx:9200", "http://roscigno-ilm-6tml:9200"]
 ```
 
+## Tunnel to GCP
+
+This uses the Google `gcloud` command to ssh to a VM in my GCE projject and port forward port `8601` on my laptop to port `5601` on the remote VM.  See the Kibana config above, I have Kibana listening on the loopback (localhost) address.
+
+```
+gcloud compute ssh --project elastic-customer-success \
+  --zone us-central1-a roscigno-ilm-sr76 \
+  -- -L 8601:localhost:5601
+```
