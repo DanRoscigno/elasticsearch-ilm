@@ -59,3 +59,11 @@ cluster.initial_master_nodes: ["external-elastic-one", "external-elastic-two"]
 ```
 
 node 3 is not master eligible
+
+## Kibana
+
+```
+server.host: "roscigno-ilm-sr76"
+elasticsearch.hosts: ["http://roscigno-ilm-sr76:9200", "http://roscigno-ilm-q8dx:9200", "http://roscigno-ilm-6tml:9200"]
+```
+
