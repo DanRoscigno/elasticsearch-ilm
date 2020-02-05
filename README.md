@@ -124,3 +124,16 @@ gcloud compute scp \
   . \
   --project elastic-customer-success --zone us-central1-a 
 ```
+
+# Logstash
+
+Dowload latest.
+
+## Java
+Reuse the JDK supplied with Elasticsearch
+```
+export JAVA_HOME=$HOME/install/elasticsearch-7.5.2/jdk
+```
+
+## Grab some logs
+Sample logs used in [Logstash getting started]() are at https://download.elastic.co/demos/logstash/gettingstarted/logstash-tutorial.log.gz
