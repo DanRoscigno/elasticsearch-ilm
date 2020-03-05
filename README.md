@@ -28,7 +28,9 @@ The first node (`external-elastic-one`) has this config after following the [sec
 
 ```
 node.name: external-elastic-one
-#node.attr.box_type: warm
+#node.attr.data.hot: true
+#node.attr.data.warm: true
+#node.attr.data.cold: true
 node.master: true 
 node.data: true 
 node.ingest: true 
@@ -51,7 +53,9 @@ and the second master eligible:
 
 ```
 node.name: external-elastic-two
-#node.attr.box_type: warm
+#node.attr.data.hot: true
+#node.attr.data.warm: true
+#node.attr.data.cold: true
 node.master: true 
 node.data: true 
 node.ingest: true 
@@ -68,11 +72,11 @@ xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
 xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 ```
 
-node 5 is not master eligible or an ingest node.  It is a warm node (`node.attr.box_type: warm`)
+node 5 is not master eligible or an ingest node.  It is a warm node (`node.attr.data.warm: true`)
 
 ```
 node.name: external-elastic-five
-node.attr.box_type: warm
+node.attr.data.warm: true
 node.master: false 
 node.data: true 
 node.ingest: false 
