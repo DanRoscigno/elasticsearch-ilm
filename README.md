@@ -2,7 +2,7 @@
 
 ## Build an instance group in GCP
 
-I used a five node non-autoscaling in a single GCP availability sone.  I used sall n-1 (3.75GB RAM) Centos 7 images.
+I used a five node non-autoscaling in a single GCP availability sone.  I used small n-1 (3.75GB RAM) Centos 7 images.
 
 ## Setup virtual memory and max files
 
@@ -46,8 +46,6 @@ xpack.security.transport.ssl.verification_mode: certificate
 xpack.security.transport.ssl.keystore.path: elastic-certificates.p12
 xpack.security.transport.ssl.truststore.path: elastic-certificates.p12
 ```
-
-Note: Come back and add info on security, or maybe ust link to the securing your cluster doc.
 
 and the second master eligible:
 
